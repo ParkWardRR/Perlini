@@ -1,0 +1,14 @@
+# Change the localdir to the local directory which has files to upload or where the files to be downloaded
+# Change the bucket name to the AWS s3 bucket name : for bucket name give the only name and path like noaa-nexrad-level2/2019 without "s3://"
+# To test the upload performance run ./trackperfv2.sh -f upload.yaml 
+# Ro test the download performance run ./trackperfv2.sh -f download.yaml 
+# monitorper.sh will be executed  as
+# to create CSV file from upload log run: ./monitorperf.sh upload.log >upload.csv  
+# to create CSV file from download log run: ./monitorperf.sh download.log >download.csv
+# content of YAML file
+
+conf:
+  localdir: /media/sf_ubuntuSharing/twesh/d1
+  bucket: testhkmfsd
+  processlog: upload.log
+  operation: upload
