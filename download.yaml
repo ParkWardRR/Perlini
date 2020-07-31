@@ -1,10 +1,20 @@
 # Change the localdir to the local directory which has files to upload or where the files to be downloaded
 # Change the bucket name to the AWS s3 bucket name : for bucket name give the only name and path like noaa-nexrad-level2/2019 without "s3://"
 # To test the upload performance run ./trackperfv2.sh -f upload.yaml 
-# Ro test the download performance run ./trackperfv2.sh -f download.yaml 
-# monitorper.sh will be executed  as
-# to create CSV file from upload log run: ./monitorperf.sh upload.log >upload.csv  
-# to create CSV file from download log run: ./monitorperf.sh download.log >download.csv
+# To test the download performance run ./trackperfv2.sh -f download.yaml 
+# monitorperf.sh will be executed  as
+# to create CSV file from upload process log and upload the log (to processlog BUCKET) and  csv (to csv BUCKET) run: 
+# ./monitorperf.sh -f upload.yaml  
+# to create CSV file from download process log and upload the log (to processlog BUCKET) and  csv (to csv BUCKET) run: 
+# ./monitorperf.sh download.log >download.csv 
+#The names in the log and csv buckets will as follows:
+#Processlog as:
+#download-i-07120fb09653a2ee5-kef-EC2-jumphost-TF-2020_07_30_08_59_AM.log
+#upload-i-07120fb09653a2ee5-kef-EC2-jumphost-TF-2020_07_30_08_59_AM.log
+#CSV files as: 
+#download-i-07120fb09653a2ee5-kef-EC2-jumphost-TF-2020_07_30_08_59_AM.csv
+#upload-i-07120fb09653a2ee5-kef-EC2-jumphost-TF-2020_07_30_08_59_AM.csv
+
 # content of YAML file
 
 conf:
@@ -12,3 +22,6 @@ conf:
   bucket: testhkmfsd
   processlog: download.log
   operation: download
+  csvfile: download.csv
+  processlogbucket: testhkmfsd
+  csvfilebucket: testhkmfsd
