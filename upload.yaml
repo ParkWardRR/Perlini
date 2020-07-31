@@ -18,10 +18,10 @@
 # content of YAML file
 
 conf:
-  localdir: /media/sf_ubuntuSharing/twesh/d1
-  bucket: testhkmfsd
+  localdir: /tmp/d1
+  bucket: noaa-nexrad-level2/2019
   processlog: upload.log
   operation: upload
   csvfile: upload.csv
-  processlogbucket: testhkmfsd
-  csvfilebucket: testhkmfsd
+  processlogbucket: kef-processlogbucket
+  csvfilebucket: kef-csvfilebucket
