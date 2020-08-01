@@ -22,6 +22,14 @@ BUCKET=$(grep 'bucket:' $yamlname | awk '{ print $2}')
 PROCESSLOG=$(grep 'processlog:' $yamlname | awk '{ print $2}')
 OPERATION=$(grep 'operation:' $yamlname | awk '{ print $2}')
 
+#need outputs for troubleshooting 
+echo --------------------------------------------------
+echo $DIRNAME
+echo $BUCKET
+echo $PROCESSLOG
+echo $OPERATION
+echo --------------------------------------------------
+
 
 start=`date +%s.%N`
 
