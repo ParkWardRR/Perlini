@@ -23,5 +23,5 @@ conf:
   processlog: download.log
   operation: download
   csvfile: download.csv
-  processlogbucket: kef-processlogbucket
-  csvfilebucket: kef-csvfilebucket
+  plogbuckt: kef-processlogbucket
+  csvbuckt: kef-csvfilebucket

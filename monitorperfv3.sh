@@ -21,14 +21,14 @@ DIRNAME=$(grep  'localdir:' $yamlname | awk '{ print $2}')
 BUCKET=$(grep 'bucket:' $yamlname | awk '{ print $2}') 
 PROCESSLOG=$(grep 'processlog:' $yamlname | awk '{ print $2}')
 OPERATION=$(grep 'operation:' $yamlname | awk '{ print $2}')
-PROCESSLOGBUCKET=$(grep 'processlogbucket:' $yamlname | awk '{ print $2}')
-CSVFILEBUCKET=$(grep 'processlogbucket:' $yamlname | awk '{ print $2}')
+PROCESSLOGBUCKET=$(grep 'plogbuckt:' $yamlname | awk '{ print $2}')
+CSVFILEBUCKET=$(grep 'csvbuckt:' $yamlname | awk '{ print $2}')
 
 
 
 updownprefix=$(echo "$yamlname" | cut -f 1 -d '.')
 #instancename="i-07120fb09653a2ee5-kef-EC2-jumphost-TF"
-instancename=$(aws ec2 describe-tags --filters "Name=resource-id,Values=$(aws ec2 describe-instances --query 'Reservations[].Instances[].[Placement.AvailabilityZone, State.Name, InstanceId]' --output text | grep us-west-2a | grep running | awk '{print $3}')" --output text| tail -1|awk '{print $3"-"$5}')dateforname=$(date +"%Y_%m_%d_%I_%M_%p")
+instancename=$(aws ec2 describe-tags --filters "Name=resource-id,Values=$(aws ec2 describe-instances --query 'Reservations[].Instances[].[Placement.AvailabilityZone, State.Name, InstanceId]' --output text | grep us-west-2a | grep running | awk '{print $3}')" --output text| tail -1|awk '{print $3"-"$5}')
 dateforname=$(date +"%Y-%m-%d-%I-%M-%p")
 CSVFILE="$updownprefix-$instancename-$dateforname.csv"
 newlogname="$updownprefix-$instancename-$dateforname.log"
