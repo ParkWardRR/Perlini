@@ -19,7 +19,7 @@
 
 conf:
   localdir: /tmp/d1
-  bucket: noaa-nexrad-level2/2019
+  bucket: noaa-nexrad-level2/1992/03/02/KMLB/
   processlog: download.log
   operation: download
   csvfile: download.csv
